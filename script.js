@@ -33,5 +33,22 @@ function operate(num1, num2, operator) {
     }
 }
 
-let result = operate(1,6,'/');
-console.log(result);
+const display = document.querySelector('.display');
+display.textContent = '0';
+
+function populate(button) {
+    if (typeof button === 'number' && display.textContent === '0') {
+        display.textContent = button;
+    }
+    else if (typeof button === 'number') {
+        display.textContent += button;
+    }
+    else {
+        let currentValue = display.textContent;
+        return currentValue;
+    }
+}
+
+populate(1);
+populate(2);
+console.log(populate('+'));
