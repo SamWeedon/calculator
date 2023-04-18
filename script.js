@@ -44,13 +44,22 @@ function populate(button) {
         display.textContent += button;
     }
     else {
-        let currentValue = display.textContent;
-        return currentValue;
+        console.log(store(display.textContent));
+        display.textContent = button;
     }
 }
+/*
+I need the algorithm to store the number and store the operator 
+when an operation is clicked. When a digit is pressed, it needs to 
+replace the number with this digit and so on. When equal is pressed, 
+it needs to store the second number and call the operate function with 
+the stored variables. When a second, third, etc. operator is pressed,
+it needs to make the "second" number the "first" number and store the
+operator.
+*/
+
 
 const digits = document.querySelectorAll('.digits > button');
-console.log(digits);
 digits.forEach(function(digit) {
     digit.addEventListener('click', function() {
         populate(parseInt(digit.textContent))
@@ -61,7 +70,9 @@ const operations = document.querySelectorAll('.operations > button');
 operations.forEach(function(operation) {
     operation.addEventListener('click', function() {
         populate(operation.textContent);
-        console.log(operation.textContent);
     })
 })
 
+function store(input) {
+    return input;
+}
