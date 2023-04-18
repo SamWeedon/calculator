@@ -49,6 +49,19 @@ function populate(button) {
     }
 }
 
-populate(1);
-populate(2);
-console.log(populate('+'));
+const digits = document.querySelectorAll('.digits > button');
+console.log(digits);
+digits.forEach(function(digit) {
+    digit.addEventListener('click', function() {
+        populate(parseInt(digit.textContent))
+    })
+})
+
+const operations = document.querySelectorAll('.operations > button');
+operations.forEach(function(operation) {
+    operation.addEventListener('click', function() {
+        populate(operation.textContent);
+        console.log(operation.textContent);
+    })
+})
+
