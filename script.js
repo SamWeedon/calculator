@@ -56,6 +56,14 @@ operate()
 num1 = result
 op = operator
 text = result
+
+CALCULATOR ALGORITHM FOR EQUALS:
+On click:
+num2 = text
+operate()
+num1 = result
+op = undefined
+
 */
 
 
@@ -73,6 +81,16 @@ let num1;
 let num2;
 let outcome;
 let nextNumber = false;
+const equals = document.querySelector('.equals > button');
+equals.addEventListener('click', function() {
+            num2 = display.textContent;
+            outcome = operate(num1, num2, op);
+            display.textContent = outcome;
+            num1 = outcome;
+            firstClick = true;
+            nextNumber = true;
+})
+
 operations.forEach(function(operation) {
     operation.addEventListener('click', function() {
         if (firstClick) {
