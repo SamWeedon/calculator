@@ -91,3 +91,14 @@ operations.forEach(function(operation) {
         }
     })
 })
+
+const clear = document.querySelector('.clear > button');
+clear.addEventListener('click', function() {
+    display.textContent = '0';
+    firstClick = true;
+    op = '';
+    num1 = '';
+    num2 = '';
+    outcome = '';
+    nextNumber = false;
+})
