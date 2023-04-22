@@ -40,6 +40,7 @@ function populate(button) {
         display.textContent += button;
     }
     /*
+    POTENTIAL FUTURE REGEX
     else {
         let num1 = store(display.textContent.replace(/\D/g, ""));
         display.textContent = button;
@@ -49,13 +50,16 @@ function populate(button) {
     */
 }
 /*
-I need the algorithm to store the number and store the operator 
-when an operation is clicked. When a digit is pressed, it needs to 
-replace the number with this digit and so on. When equal is pressed, 
-it needs to store the second number and call the operate function with 
-the stored variables. When a second, third, etc. operator is pressed,
-it needs to make the "second" number the "first" number and store the
-operator.
+CALCULATION ALGORITHM:
+On first run:
+num1 = text
+op = operator
+
+On second/third/... run:
+num2 = text
+operate()
+num1 = result
+op = operator
 */
 
 
@@ -70,7 +74,7 @@ const operations = document.querySelectorAll('.operations > button');
 let firstClick = true;
 let op;
 let num1;
-let num2 = false;
+let num2;
 let outcome;
 operations.forEach(function(operation) {
     operation.addEventListener('click', function() {
@@ -81,28 +85,18 @@ operations.forEach(function(operation) {
             firstClick = false;
         }
         else {
-            if (!num2) {
-                num2 = display.textContent;
-                outcome = operate(num1, num2, op);
-                console.log(outcome);
-                num1 = num2;
-                num2 = outcome;
-                display.textContent = "";
-                op = operation.textContent;
-            }
-            else {
-                outcome = operate(num1, num2, op);
-                num2 = display.textContent;
-                console.log(outcome);
-                num1 = num2;
-                num2 = outcome;
-                display.textContent = "";
-                op = operation.textContent;
-            }
+            num2 = display.textContent;
+            outcome = operate(num1, num2, op);
+            console.log(outcome);
+            num1 = outcome;
+            op = operation.textContent;
+            display.textContent = "";
         }
     })
 })
-
+/*
+FORMER STORE FUNCTION
 function store(input) {
     return input;
 }
+*/
