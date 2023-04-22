@@ -33,33 +33,29 @@ const display = document.querySelector('.display');
 display.textContent = '0';
 
 function populate(button) {
+    if (nextNumber === true) {
+        display.textContent = "";
+        nextNumber = false;
+    }
     if (typeof button === 'number' && display.textContent === '0') {
         display.textContent = button;
     }
     else if (typeof button === 'number') {
         display.textContent += button;
     }
-    /*
-    POTENTIAL FUTURE REGEX
-    else {
-        let num1 = store(display.textContent.replace(/\D/g, ""));
-        display.textContent = button;
-        return num1;
-    
-    }
-    */
 }
 /*
 CALCULATION ALGORITHM:
-On first run:
+On first operator click:
 num1 = text
 op = operator
 
-On second/third/... run:
+On second/third/... click:
 num2 = text
 operate()
 num1 = result
 op = operator
+text = result
 */
 
 
@@ -76,27 +72,22 @@ let op;
 let num1;
 let num2;
 let outcome;
+let nextNumber = false;
 operations.forEach(function(operation) {
     operation.addEventListener('click', function() {
         if (firstClick) {
             num1 = display.textContent;
             op = operation.textContent;
-            display.textContent = "";
             firstClick = false;
+            nextNumber = true;
         }
         else {
             num2 = display.textContent;
             outcome = operate(num1, num2, op);
-            console.log(outcome);
+            display.textContent = outcome;
             num1 = outcome;
             op = operation.textContent;
-            display.textContent = "";
+            nextNumber = true;
         }
     })
 })
-/*
-FORMER STORE FUNCTION
-function store(input) {
-    return input;
-}
-*/
