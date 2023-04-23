@@ -3,7 +3,7 @@ function add(a,b) {
 }
 
 function subtract(a,b) {
-    return a - b;
+    return parseFloat((a - b).toFixed(4));
 }
 
 function multiply(a,b) {
@@ -49,21 +49,18 @@ CALCULATION ALGORITHM:
 On first operator click:
 num1 = text
 op = operator
-
 On second/third/... click:
 num2 = text
 operate()
 num1 = result
 op = operator
 text = result
-
 CALCULATOR ALGORITHM FOR EQUALS:
 On click:
 num2 = text
 operate()
 num1 = result
 op = undefined
-
 */
 
 
@@ -128,4 +125,19 @@ clear.addEventListener('click', function() {
     num2 = '';
     outcome = '';
     nextNumber = false;
+})
+
+const backspace = document.querySelector('.backspace > button');
+backspace.addEventListener('click', function() {
+    let string = display.textContent;
+    let stringBackspaced = string.substring(0, string.length - 1);
+    if (string.includes('.') && stringBackspaced.includes('.') === false) {
+        decimal.addEventListener('click', addDigits);
+    }
+    if (string.length <= 1){
+        display.textContent = 0;
+    }
+    else {
+        display.textContent = stringBackspaced;
+    }
 })
