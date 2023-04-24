@@ -65,7 +65,7 @@ op = undefined
 
 
 const digits = document.querySelectorAll('.digits > button');
-const decimal = document.getElementById('decimal-point');
+const decimal = document.getElementById('.');
 const addDigits = function() {
     populate(this.textContent)
         if (this.textContent === '.') {
@@ -139,5 +139,13 @@ backspace.addEventListener('click', function() {
     }
     else {
         display.textContent = stringBackspaced;
+    }
+})
+
+//start of keyboard-support code
+document.addEventListener('keydown', (event) => {
+    if (event.key !== 'Shift') {
+        event.preventDefault();
+        document.getElementById(event.key).click();
     }
 })
