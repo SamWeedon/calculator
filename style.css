@@ -1,0 +1,47 @@
+body {
+    display: flex;
+    justify-content: center;
+}
+
+.calculator {
+    width: 500px;
+}
+
+.display {
+    border: 1px solid rgb(192, 189, 189);
+    border-radius: 10px;
+    padding: 10px;
+    margin: 10px;
+}
+
+.buttons {
+    width: 287px;
+}
+
+.row1 {
+    
+}
+
+button {
+    border-radius: 5px;
+    border: none;
+}
+
+.digit, .operation, #\=, #Delete {
+    width: 60px;
+    height: 30px;
+    margin: 4px;
+}
+
+.operation, .row1 > button {
+    background: rgb(223, 220, 220);
+}
+
+.digit {
+    background:rgb(247, 244, 244)
+}
+
+#\= {
+    background: blue;
+    color: white;
+}

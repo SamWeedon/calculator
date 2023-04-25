@@ -64,7 +64,7 @@ op = undefined
 */
 
 
-const digits = document.querySelectorAll('.digits > button');
+const digits = document.querySelectorAll('.digit');
 const decimal = document.getElementById('.');
 const addDigits = function() {
     populate(this.textContent)
@@ -76,14 +76,14 @@ digits.forEach(function(digit) {
     digit.addEventListener('click', addDigits);
 })
 
-const operations = document.querySelectorAll('.operations > button');
+const operations = document.querySelectorAll('.operation');
 let firstClick = true;
 let op;
 let num1;
 let num2;
 let outcome;
 let nextNumber = false;
-const equals = document.querySelector('.equals > button');
+const equals = document.getElementById('=');
 equals.addEventListener('click', function() {
     if (num1 && op) {
     num2 = display.textContent;
@@ -116,7 +116,7 @@ operations.forEach(function(operation) {
     })
 })
 
-const clear = document.querySelector('.clear > button');
+const clear = document.getElementById('Delete');
 clear.addEventListener('click', function() {
     display.textContent = '0';
     firstClick = true;
@@ -127,7 +127,7 @@ clear.addEventListener('click', function() {
     nextNumber = false;
 })
 
-const backspace = document.querySelector('.backspace > button');
+const backspace = document.getElementById('Backspace');
 backspace.addEventListener('click', function() {
     let string = display.textContent;
     let stringBackspaced = string.substring(0, string.length - 1);
