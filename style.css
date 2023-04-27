@@ -52,7 +52,14 @@ button {
     margin: 4px;
 }
 
-button:active {
-    background: black;
-    color: white;
+button:hover {
+    cursor: pointer;
+}
+
+button:focus {
+    outline: none;
+}
+
+.animate {
+    border: 1px solid black;
 }

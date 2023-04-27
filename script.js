@@ -149,3 +149,15 @@ document.addEventListener('keydown', (event) => {
         document.getElementById(event.key).click();
     }
 })
+
+//start of button animation code
+const buttonList = document.querySelectorAll('button');
+buttonList.forEach((button) => {
+    button.addEventListener('click', (e) => {
+        e.preventDefault();
+        button.classList.add('animate');
+        setTimeout(() => {
+            button.classList.remove('animate');
+        }, 90);
+    });
+});
